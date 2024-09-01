@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classical Liberalism Simulator</title>
+    <link href="default.css" rel="stylesheet">
+    <script src="chart.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .card {
+        margin: 20px 0;
+      }
+
+      canvas {
+        width: 100% !important;
+        height: 400px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-3 mb-3">
+      <h1 class="text-center">Classical Liberalism Simulator</h1>
+      <!-- Description Card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Description</h5>
+          <p class="card-text">This simulator illustrates the economic and social impacts of classical liberalism over a 50-year period, with the first 10 years representing the pre-industrial era. Classical liberalism, which spans the remaining 40 years, is an economic and political philosophy that emphasizes individual rights, private property, free markets, and limited government intervention.</p>
+          <p class="card-text">The simulator visualizes GDP, poverty rates, quality of life, inequality, and economic mobility, highlighting the phases of growth, success, and decline. Use the settings below to adjust the smoothing of the data.</p>
+        </div>
+      </div>
+      <!-- Pre-Industrial Era Description -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Pre-Industrial Era (Years 0-10)</h5>
+          <p class="card-text">The pre-industrial era is characterized by a predominantly agricultural economy, low productivity, and limited technological advancement. During this period, GDP growth is slow, poverty rates are high, quality of life is generally poor, inequality is moderate, and economic mobility is limited.</p>
+        </div>
+      </div>
+      <!-- Classical Liberalism Description -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Classical Liberalism (Years 10-50)</h5>
+          <p class="card-text">The implementation of classical liberalism policies, such as deregulation, privatization, and free trade, leads to an initial period of economic growth (Years 10-20). During this growth phase, GDP increases, poverty rates decline, and quality of life improves. However, inequality also rises as the benefits of growth are not evenly distributed.</p>
+          <p class="card-text">The success phase (Years 20-30) sees continued GDP growth, further reductions in poverty, and a higher quality of life. Economic mobility remains stable, but inequality continues to increase.</p>
+          <p class="card-text">The decline phase (Years 30-50) is characterized by a slowdown in GDP growth, rising poverty rates, declining quality of life, and increasing inequality. Economic mobility decreases as opportunities become more limited. This decline is a result of the inability of unregulated markets to address issues such as monopolistic practices, environmental degradation, and the concentration of wealth and power.</p>
+        </div>
+      </div>
+      <!-- Settings Card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Settings</h5>
+          <div class="form-group mb-0">
+            <label for="smoothing">Smoothing Factor (0.1-1):</label>
+            <input type="range" class="form-control-range" id="smoothing" min="0.1" max="1" step="0.1" value="0.5" onchange="updateCharts()">
+            <small class="form-text text-muted">Current smoothing rate: <span id="smoothingRate">0.5</span>
+            </small>
+          </div>
+        </div>
+      </div>
+      <!-- Chart Cards -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">GDP Over Time</h5>
+          <canvas id="gdpChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Poverty Rates Over Time</h5>
+          <canvas id="povertyChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Quality of Life Over Time</h5>
+          <canvas id="qualityChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Inequality Over Time</h5>
+          <canvas id="inequalityChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Economic Mobility Over Time</h5>
+          <canvas id="mobilityChart"></canvas>
+        </div>
+      </div>
+      <!-- Combined Chart Card -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Combined Metrics Over Time</h5>
+          <canvas id="combinedChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
